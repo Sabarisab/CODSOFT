@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <h3>SIMPLE CALCULATOR</h3>
+    <style>
+        *{
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+background-color: #9ba4ab;
+font-family: sans-serif;
+outline: none;
+}
+h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    color: rgb(27, 74, 77);
+    padding: 30px;
+}
+.container
+{
+height: 90vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.cal
+{
+background-color: #cfd3d6;
+padding: 50px;
+border-radius: 10px;
+box-shadow: outset 5px 5px 12px #d4c4c4,5px 5px 12px ;
+display: grid;
+grid-template-columns: repeat(4,68px);
+}
+
+input{
+grid-column: span 4;
+height: 70px;
+width: 258px;
+background-color: #aacef2;
+box-shadow: inset -5px -5px 12px #ffffff, inset 5px 5px 12px rgba(0,0,0,.16);
+border: none;
+border-radius: 30px;
+color: rgb(252, 244, 244);
+font-size: 35px;
+text-align: right;
+margin: auto;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+button{
+height: 45px;
+width: 45px;
+background-color: #6faad8;
+box-shadow: inset -5px -5px 12px #ffffff, inset 5px 5px 12px rgba(0,0,0,.16);
+border:none;
+border-radius: 15px;
+margin: 10px;
+font-size: 16px;
+}
+
+.equal{
+width: 115px;
+border-radius: 20px;
+background-color: #b0c7d8;
+box-shadow: inset -5px -5px 12px #ffffff, inset 5px 5px 12px rgba(0,0,0,.16);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cal">
+            <input type="text" placeholder="0" id="output">
+            <button onclick="Clear()">C</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+    </div>
+    <script >
+    let screen=document.getElementById("output");
+
+        function display(num)
+        {
+            screen.value += num;
+        }
+        
+        function calculate()
+        {
+            try{
+                screen.value=eval(screen.value);
+            }
+            catch(err)
+            {
+                alert("Invalid Input");
+            }
+        }
+        function Clear()
+        {
+            screen.value="";
+        }
+        function del()
+        {
+            screen.value=screen.value.slice(0,-1);
+        }</script>
+</body>
+</html>
+
